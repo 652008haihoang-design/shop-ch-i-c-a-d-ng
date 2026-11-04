@@ -1,0 +1,522 @@
+# shop-ch-i-c-a-d-ng
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Người Lớn Cao Cấp - Giao Hàng Kín Đáo</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #d63384;
+            --primary-dark: #a51d5c;
+            --accent-pink: #ff69b4;
+            --dark: #121212;
+            --dark-card: #1e1e1e;
+            --gray-text: #b0b0b0;
+            --light: #ffffff;
+            --glow: 0 0 20px rgba(214, 51, 132, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* HEADER */
+        header {
+            background: rgba(18, 18, 18, 0.95);
+            padding: 15px 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-transform: uppercase;
+        }
+
+        .logo i {
+            color: var(--accent-pink);
+        }
+
+        .logo span {
+            color: var(--accent-pink);
+        }
+
+        .header-btn {
+            background: linear-gradient(45deg, var(--primary), var(--accent-pink));
+            color: var(--light);
+            padding: 8px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: var(--glow);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .header-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* HERO BANNER */
+        .hero {
+            padding: 130px 5% 50px 5%;
+            text-align: center;
+            background: radial-gradient(circle at 50% 30%, #3a0d28 0%, var(--dark) 70%);
+        }
+
+        .badge-hot {
+            display: inline-block;
+            background: rgba(255, 105, 180, 0.2);
+            border: 1px solid var(--accent-pink);
+            color: var(--accent-pink);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #ffffff, #ff69b4, #d63384);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--gray-text);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* PRODUCTS SECTION */
+        .products-section {
+            padding: 60px 5%;
+            background-color: #161616;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title span {
+            color: var(--accent-pink);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background-color: var(--dark-card);
+            border: 1px solid #333;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: var(--glow);
+        }
+
+        .product-img-box {
+            width: 100%;
+            height: 250px;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.08);
+        }
+
+        .product-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--light);
+        }
+
+        .product-price {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--accent-pink);
+            margin-bottom: 15px;
+        }
+
+        .select-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            text-transform: uppercase;
+            transition: background 0.3s;
+        }
+
+        .select-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        /* ORDER SECTION */
+        .order-section {
+            padding: 80px 5%;
+            background: linear-gradient(to bottom, #161616, var(--dark));
+            display: flex;
+            justify-content: center;
+        }
+
+        .order-container {
+            background: var(--dark-card);
+            border: 2px solid var(--primary);
+            border-radius: 25px;
+            width: 100%;
+            max-width: 850px;
+            padding: 40px;
+            box-shadow: 0 0 40px rgba(214, 51, 132, 0.3);
+        }
+
+        .order-container h3 {
+            font-size: 1.8rem;
+            color: var(--accent-pink);
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--light);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 18px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid #444;
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent-pink);
+            box-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+        }
+
+        select.form-control {
+            cursor: pointer;
+        }
+
+        textarea.form-control {
+            resize: none;
+            height: 90px;
+        }
+
+        .submit-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(45deg, var(--primary), var(--accent-pink));
+            color: white;
+            padding: 16px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-transform: uppercase;
+            box-shadow: var(--glow);
+            transition: transform 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.02);
+        }
+
+        .alert-success {
+            display: none;
+            background: rgba(40, 167, 69, 0.2);
+            border: 1px solid #28a745;
+            color: #28a745;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #0a0a0a;
+            padding: 30px 5%;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--gray-text);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            .order-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <a href="#" class="logo">
+            <i class="fa-solid fa-heart-pulse"></i>
+            SECRET <span>STORE</span>
+        </a>
+        <a href="#dat-hang" class="header-btn">ĐẶT HÀNG NHANH</a>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <span class="badge-hot"><i class="fa-solid fa-user-secret"></i> Giao Hàng Siêu Kín Đáo - Che Tên Sản Phẩm</span>
+        <h1 class="hero-title">Thăng Hoa Cảm Xúc Cùng Bạn</h1>
+        <p class="hero-subtitle">Tuyển tập các dòng đồ chơi cao cấp giúp đổi gió cuộc yêu, mang lại trải nghiệm đỉnh cao và an toàn tuyệt đối.</p>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section class="products-section">
+        <h2 class="section-title">Danh Sách <span>Sản Phẩm</span></h2>
+        
+        <div class="products-grid">
+            <!-- Sản phẩm 1 -->
+            <div class="product-card">
+                <div class="product-img-box">
+                    <img src="https://bizweb.dktcdn.net/thumb/1024x1024/100/020/360/products/duong-vat-gia-david-prettylove-cao-cap-2.jpg?v=1521644359303" alt="Dương vật giả David Prettylove" class="product-img">
+                </div>
+                <div class="product-content">
+                    <div>
+                        <h3 class="product-title">Dương vật giả David Prettylove cao cấp</h3>
+                        <div class="product-price">10.000 đ</div>
+                    </div>
+                    <button class="select-btn" onclick="chonSanPham('Dương vật giả David Prettylove cao cấp - 10.000đ')">CHỌN MUA</button>
+                </div>
+            </div>
+
+            <!-- Sản phẩm 2 -->
+            <div class="product-card">
+                <div class="product-img-box">
+                    <img src="https://dochoitinhducxtoy.com/upload_images/images/2023/04/07/bo-do-choi-bdsm.jpg" alt="Vòng cổ tình yêu / Combo BDSM" class="product-img">
+                </div>
+                <div class="product-content">
+                    <div>
+                        <h3 class="product-title">Vòng cổ tình yêu / Bộ dụng cụ BDSM sang trọng</h3>
+                        <div class="product-price">100.000 đ</div>
+                    </div>
+                    <button class="select-btn" onclick="chonSanPham('Vòng cổ tình yêu / Combo BDSM - 100.000đ')">CHỌN MUA</button>
+                </div>
+            </div>
+
+            <!-- Sản phẩm 3 -->
+            <div class="product-card">
+                <div class="product-img-box">
+                    <img src="https://vitinh2t.com/uploads/noidung/duong-vat-gan-tuong-khung-long-630cm--sextoy-dan-tuong-cuc-dai--do-choi-tinh-duc-co-lon--331.png" alt="Dương vật giả gắn tường khủng long" class="product-img">
+                </div>
+                <div class="product-content">
+                    <div>
+                        <h3 class="product-title">Dương vật giả gắn tường khủng long cỡ lớn</h3>
+                        <div class="product-price">150.000 đ</div>
+                    </div>
+                    <button class="select-btn" onclick="chonSanPham('Dương vật giả gắn tường khủng long cỡ lớn - 150.000đ')">CHỌN MUA</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ORDER FORM SECTION -->
+    <section class="order-section" id="dat-hang">
+        <div class="order-container">
+            <h3><i class="fa-solid fa-cart-shopping"></i> Form Đặt Hàng Bảo Mật</h3>
+            
+            <form id="orderForm" action="https://formspree.io/f/xpppkjbb" method="POST">
+                
+                <div class="form-group">
+                    <label for="productSelect">Sản phẩm đã chọn *</label>
+                    <select id="productSelect" name="Sản phẩm đặt mua" class="form-control" required>
+                        <option value="">-- Vui lòng chọn sản phẩm --</option>
+                        <option value="Dương vật giả David Prettylove cao cấp - 10.000đ">Dương vật giả David Prettylove cao cấp (10.000 đ)</option>
+                        <option value="Vòng cổ tình yêu / Combo BDSM - 100.000đ">Vòng cổ tình yêu / Combo BDSM (100.000 đ)</option>
+                        <option value="Dương vật giả gắn tường khủng long cỡ lớn - 150.000đ">Dương vật giả gắn tường khủng long cỡ lớn (150.000 đ)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="fullname">Họ và tên người nhận *</label>
+                    <input type="text" id="fullname" name="Họ tên khách hàng" class="form-control" placeholder="Nhập họ tên của bạn" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Số điện thoại nhận hàng *</label>
+                    <input type="tel" id="phone" name="Số điện thoại" class="form-control" placeholder="Ví dụ: 0987654321" pattern="[0-9]{9,11}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Địa chỉ nhận hàng chi tiết *</label>
+                    <input type="text" id="address" name="Địa chỉ giao hàng" class="form-control" placeholder="Số nhà, đường, phường/xã, quận/huyện, tỉnh..." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="note">Ghi chú (Ví dụ: Giao giờ hành chính, bọc kín đáo...)</label>
+                    <textarea id="note" name="Ghi chú thêm" class="form-control" placeholder="Yêu cầu riêng khi giao hàng..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <i class="fa-solid fa-paper-plane"></i> XÁC NHẬN ĐẶT HÀNG
+                </button>
+
+                <div class="alert-success" id="successAlert">
+                    <i class="fa-solid fa-circle-check"></i> Đặt hàng thành công! Thông tin của bạn đã được gửi tới chủ shop để lên đơn.
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 SECRET STORE - Cam kết bảo mật thông tin khách hàng 100%</p>
+        <p style="margin-top: 5px; font-size: 0.8rem;">Gói kín đáo - Không để lộ tên sản phẩm trên kiện hàng</p>
+    </footer>
+
+    <!-- JAVASCRIPT XỬ LÝ -->
+    <script>
+        // Hàm bấm nút "Chọn mua" ở mỗi sản phẩm sẽ tự động nhảy xuống form và chọn sẵn sản phẩm đó
+        functionchonSanPham(tenSanPham) {
+            const selectBox = document.getElementById('productSelect');
+            selectBox.value = tenSanPham;
+            window.location.href = '#dat-hang';
+        }
+
+        // Xử lý gửi form ngầm qua Formspree để báo về Gmail chủ shop ngay lập tức
+        const form = document.getElementById("orderForm");
+        const successAlert = document.getElementById("successAlert");
+        const submitBtn = document.getElementById("submitBtn");
+
+        form.addEventListener("submit", async function(event) {
+            event.preventDefault();
+            
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang gửi thông tin...';
+
+            const data = new FormData(event.target);
+            
+            try {
+                const response = await fetch(event.target.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    successAlert.style.display = "block";
+                    form.reset();
+                } else {
+                    alert("Có lỗi xảy ra khi đặt hàng. Vui lòng thử lại!");
+                }
+            } catch (error) {
+                alert("Lỗi kết nối mạng. Vui lòng kiểm tra lại!");
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> XÁC NHẬN ĐẶT HÀNG';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,1 +1,0 @@
-# shop-ch-i-c-a-d-ng
